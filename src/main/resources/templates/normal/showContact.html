@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{normal/base :: layout(~{::section})}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section>
+
+        <div class="card mr-3 ml-3">
+<div class="card-body">
+
+<h1 class="text-center">Your Contacts</h1>
+<!-- search for the contact in the database and then show it to the user in this table format and also provide the delete and update button for each contact so that user can easily manage his contacts from here itself and also provide the pagination for better user experience as if there are many contacts then it will be difficult to show all the contacts in one page so we will show 5 contacts per page and then provide the pagination for next and previous page --> 
+   
+
+
+
+<table class="table mt-5">
+  <thead class="thead-dark">
+
+
+    <tr>
+      <th scope="col">#ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Action</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr th:each="c: ${contacts}">
+      <th scope="row" th:text="${'SCM'+c.cId}">1</th>
+      <td >
+        <img src=""  class="my_profile_photo"  th:src="@{'/img/'+${c.image}}" alt="Profile Photo">
+        <span th:text="${c.name}"></span></td>
+      <td>
+        <a href="#" th:href="@{'/user/'+${c.cId}+'/contact'}">
+          <span th:text="${c.email}"></span>
+      </a>
+      </td>
+      <td th:text="${c.phone}">@mdo</td>
+      <td >
+<a href="javascript:void(0)"
+   th:onclick="|deleteContact(${c.cId})|"
+   class="btn btn-danger btn-sm">
+   Delete
+</a>
+
+        <!-- for the Update button we have to use the post method for security reasons therefore we cannot use the anchor tag it uses the get method -->
+         <!-- as this is the post method we cannot have this method by running the url we have to use the button itself in this case  -->
+
+
+
+         <!-- ye wla form hume update form k url pr lejyega as iska mapping usse match ho rha hai but the jo update krega form db ke and r wo dusre kisi mapping pr hai pr wo hit ni ho skti kisi url se as wo post hai aur wo hume update button se hi krni hogi so thats why we use the same url for that purpose -->
+        <form method="post" th:action="@{'/user/update-contact/'+${c.cId}}" class="mt-2">
+        <button type="submit" class="btn btn-primary btn-sm ">Update</button>
+        </form>
+
+      </td>
+    </tr>
+    
+   
+  </tbody>
+</table>
+
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+
+    <!-- Previous -->
+    <li class="page-item" th:if="${CurrentPage > 0}">
+      <a class="page-link"
+         th:href="@{'/user/show-contact/' + ${CurrentPage - 1}}">
+        Previous
+      </a>
+    </li>
+
+    <!-- Page numbers -->
+    <li th:each="i : ${#numbers.sequence(0, TotalPages - 1)}"
+        th:classappend="${CurrentPage == i} ? 'active'"
+        class="page-item">
+      <a class="page-link"
+         th:href="@{'/user/show-contact/' + ${i}}">
+        <span th:text="${i + 1}"></span>
+      </a>
+    </li>
+
+    <!-- Next -->
+    <li class="page-item" th:if="${CurrentPage < TotalPages - 1}">
+      <a class="page-link"
+         th:href="@{'/user/show-contact/' + ${CurrentPage + 1}}">
+        Next
+      </a>
+    </li>
+
+  </ul>
+</nav>
+
+
+</div>
+
+        </div>
+    </section>
+    
+</body>
+</html>
+
+
+<!-- th:classappend="${CurrentPage == TotalPages - 1} ? 'disabled'" -->
+
+<!-- th:classappend="${CurrentPage == 0} ? 'disabled'" -->

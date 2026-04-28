@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{normal/base :: layout(~{::section})}">
+     // Using the base layout and replacing the content section 
+    // now all the css and js from base.html will be included here to the about.html and to the section below
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${title}">User - Smart Contact Manager</title>
+</head>
+<body>
+    <section>
+       <div class="container">
+      <div class="card">
+
+        <div class="card-body">
+
+            <div class="text-center">
+             <img
+                  class="my_profile_photo"
+                  style="height:200px; width:200px;"
+                  th:src="@{'/img/' + ${user.imageUrl}}"
+                  alt="Profile Photo"/>
+                  </div>
+
+
+<h1 class="text-center" th:text="${user.name}"></h1>
+
+
+
+
+        <table class="table mt-3 text-center">
+  <thead>
+    <tr>
+      <th scope="col">#USERID</th>
+      <th scope="col">SCMUSER<span th:text="${user.id}"></span></th>
+    </tr>
+  </thead>
+  <tbody>
+
+
+    <tr>
+      <th scope="col">EMAIL</th>
+      <th scope="col"><span th:text="${user.email}"></span></th>
+    </tr>
+
+
+    <tr>
+      <th scope="col">ROLE</th>
+      <th scope="col"><span th:text="${user.role}"></span></th>
+    </tr>
+
+
+<tr>
+      <th scope="col">ACCOUNT ACTIVE</th>
+      <th scope="col"><span th:text="${user.enabled}"></span></th>
+    </tr>
+
+    <tr>
+      <th scope="col">ABOUT</th>
+      <th scope="col"><span th:text="${user.about}"></span></th>
+    </tr>
+
+  </tbody>
+</table>
+
+        </div>
+      </div>
+
+
+       </div>
+    </section>
+</body>
+</html>

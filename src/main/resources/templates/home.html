@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base :: layout(~{::section})">
+     // Using the base layout and replacing the content section 
+    // now all the css and js from base.html will be included here to the home.html and to the section below
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${title}">Home - Smart Contact Manager</title>
+</head>
+<body>
+    <section class="banner">
+        <div class = "text-center">
+            <h1 class="font-weight-bold">Smart Contact Manager</h1>
+        <p>Manage your contacts efficiently and securely</p>
+        <a href="/login" class="btn bg-primary btn-lg text-white">Get Started</a>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base :: layout(~{::section})">
+     <!-- // Using the base layout and replacing the content section 
+    // now all the css and js from base.html will be included here to the about.html and to the section below -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${title}">About - Smart Contact Manager</title>
+</head>
+<body>
+    <section
+    style="
+    font-family: Arial, Helvetica, sans-serif;
+    background:#f4f6f9;
+    color:#333;
+">
+       <!-- HEADER -->
+<div style="
+    background:#b406e9;
+    color:white;
+    padding:10px;
+    text-align:center;
+    margin-top: 20px;
+">
+    <h1  class="mt-5">About Smart Contact Manager</h1>
+    <p style="margin-top:10px;">
+        A simple and secure contact management system
+    </p>
+</div>
+
+<!-- MAIN CONTAINER -->
+<div style="
+    max-width:900px;
+    margin:40px auto;
+    padding:0 20px;
+">
+
+    <!-- ABOUT PROJECT -->
+    <div style="
+        background:white;
+        padding:30px;
+        border-radius:8px;
+        box-shadow:0 4px 12px rgba(0,0,0,0.1);
+        margin-bottom:30px;
+    ">
+        <h2 style="color:#b406e9; margin-top:0;">📘 About the Project</h2>
+        <p style="line-height:1.7; color:#555;">
+            Smart Contact Manager is a web application that helps users
+            store and manage their contacts securely. It allows users
+            to add, update, search, and delete contacts from a single platform.
+        </p>
+        <p style="line-height:1.7; color:#555;">
+            This project is developed as a learning-based application
+            using modern backend technologies and follows a clean MVC architecture.
+        </p>
+    </div>
+
+    <!-- FEATURES -->
+    <div style="
+        background:white;
+        padding:30px;
+        border-radius:8px;
+        box-shadow:0 4px 12px rgba(0,0,0,0.1);
+        margin-bottom:30px;
+    ">
+        <h2 style="color:#b406e9; margin-top:0;">✨ Key Features</h2>
+
+        <div style="
+            display:flex;
+            gap:20px;
+            flex-wrap:wrap;
+            margin-top:20px;
+        ">
+
+            <div style="
+                flex:1;
+                min-width:250px;
+                background:#f9fafc;
+                padding:20px;
+                border-radius:6px;
+                border-left:5px solid #b406e9;
+            ">
+                <h4 style="margin-top:0;">🔐 Secure Authentication</h4>
+                <p style="color:#555;">
+                    User authentication and authorization are implemented
+                    using Spring Security to protect user data.
+                </p>
+            </div>
+
+            <div style="
+                flex:1;
+                min-width:250px;
+                background:#f9fafc;
+                padding:20px;
+                border-radius:6px;
+                border-left:5px solid #b406e9;
+            ">
+                <h4 style="margin-top:0;">📇 Contact Management</h4>
+                <p style="color:#555;">
+                    Easily add, edit, search, and delete contacts
+                    with a clean and user-friendly interface.
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- TECHNOLOGIES -->
+    <div style="
+        background:white;
+        padding:30px;
+        border-radius:8px;
+        box-shadow:0 4px 12px rgba(0,0,0,0.1);
+    ">
+        <h2 style="color:#b406e9; margin-top:0;">🛠️ Technologies Used</h2>
+        <p style="line-height:1.7; color:#555;">
+            • Spring Boot <br>
+            • Spring MVC <br>
+            • Spring Security <br>
+            • Thymeleaf <br>
+            • Hibernate / JPA <br>
+            • MySQL <br>
+            • HTML & CSS
+        </p>
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+<div style="
+    text-align:center;
+    padding:15px;
+    color:#777;
+">
+    © 2026 Smart Contact Manager | Academic Project
+</div>
+
+    </section>
+</body>
+</html>

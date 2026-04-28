@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{normal/base :: layout(~{::section})}"><html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{normal/base :: layout(~{::section})}">
+
+     // Using the base layout and replacing the content section 
+    // now all the css and js from base.html will be included here to the about.html and to the section below
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${title}">Add-Contact - Smart Contact Manager</title>
+</head>
+<body>
+    <section>
+
+        <div class="card">
+
+            <div class="card-body">
+                 <div th:if="${session.message}"
+     th:class="'alert ' + ${session.message.type}"
+     class="text-center">
+
+    <span class="text-center" th:text="${session.message.content}"></span>
+</div>
+<th:block th:text="${@sessionhelper.removemessage()}"></th:block>
+
+                <h1 class="text-center">Add Contact</h1>
+
+               <div class="container-fluid mt-1">
+
+               <div class="row">
+                
+                <div class="col-md-10 offset-md-1">
+
+<form th:action="@{/user/process-contact}"
+      method="post"
+      enctype="multipart/form-data"
+      th:object="${contact}"
+      class="mt-2">
+ <!-- first name -->
+
+ <div class="input-group">
+    <div class="input-group-prepend">
+
+        <div class="input-group-text mr-3">
+            <i class="fas-fa-plus"></i>
+        </div>
+    </div>
+    <input required type="text" id="firstname" name="name" placeholder="Enter Your Name" class="form-control">
+ </div>
+
+ <!-- secondname -->
+
+  <div class="input-group mt-3">
+    <div class="input-group-prepend">
+
+        <div class="input-group-text mr-3">
+            <i class="fas-fa-user-alt"></i>
+        </div>
+    </div>
+    <input type="text" id="secondname" name="secondname" placeholder="Enter Your Nick Name" class="form-control">
+ </div>
+
+ <!-- phone -->
+
+ <div class="input-group mt-3">
+    <div class="input-group-prepend">
+
+        <div class="input-group-text mr-3">
+            <i class="fas-fa-user-alt"></i>
+        </div>
+    </div>
+    <input required min="10" type="number" id="phone" name="phone" placeholder="Enter Your Phone Number" class="form-control">
+ </div>
+
+
+ <!-- email -->
+
+ <div class="input-group mt-3">
+    <div class="input-group-prepend">
+
+        <div class="input-group-text mr-3">
+            <i class="fas-fa-user-alt"></i>
+        </div>
+    </div>
+    <input required type="email" id="email" name="email" placeholder="Enter Your Mail id" class="form-control">
+ </div>
+
+ <!-- work field -->
+
+ <div class="input-group mt-3">
+    <div class="input-group-prepend">
+
+        <div class="input-group-text mr-3">
+            <i class="fas-fa-user-alt"></i>
+        </div>
+    </div>
+    <input required type="text" id="work" name="work" placeholder="Enter Your Work Field" class="form-control">
+ </div>
+
+ <!-- description -->
+
+ <div class="form-group mt-3">
+
+    <textarea name="description" id="description" th:field="*{description}" placeholder="Enter Your Description" class="form-control" rows="10"></textarea>
+ </div>
+
+ <!-- contact image -->
+
+ <div class="custom-file">
+<input type="file" name="profileImage" class="form-control">
+ </div>
+
+ <!-- save contact button -->
+  <div class="container text-center mt-3">
+    <button class="btn btn-outline-primary">Save Contact</button>
+  </div>
+
+</form>
+
+                </div>
+
+               </div>
+               </div>
+            </div>
+        </div>
+
+<script src="https://cdn.tiny.cloud/1/h3iavdz0ot60r9kzti7g9ua10zbwfuz8x7ptz7omgq7ymp2w/tinymce/6/tinymce.min.js"
+        referrerpolicy="origin"></script>
+
+<script>
+  tinymce.init({
+    selector: '#description',
+    height: 300,
+    menubar: false,
+    plugins: 'lists link image code',
+    toolbar: 'undo redo | bold italic underline | bullist numlist | link | code',
+    branding: false
+  });
+</script>
+
+    </section>
+</body>
+</html>

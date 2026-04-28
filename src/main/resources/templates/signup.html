@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base :: layout(~{::section})">
+     // Using the base layout and replacing the content section 
+    // now all the css and js from base.html will be included here to the about.html and to the section below
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${title}">Signup - Smart Contact Manager</title>
+</head>
+<body>
+    <section class="register">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 offset-md-2"> 
+                    <!-- md-8 means that on medium and larger screens, this column will take up 2/3rd the width of the container as each column and row have 12 grids -->
+                     <!-- now as  8 grids are taken by this column, 4 grids are left -->
+                    <!-- offset-md-2 means that on medium and larger screens, this column will be offset by 2 grids from the left -->
+                     <div class="my-card mt-4">
+
+                           <div th:if="${session.message}"
+     th:class="'alert ' + ${session.message.type}"
+     class="text-center">
+
+    <span class="text-center" th:text="${session.message.content}"></span>
+</div>
+<th:block th:text="${@sessionhelper.removemessage()}"></th:block>
+                        
+
+
+            <!-- this will show the message only if the message attribute is present in the model -->
+
+                        <h1 class="text-center mt-1">Register Page</h1>
+
+<form th:action="@{/do_register}"
+      method="post"
+      th:object="${user}"
+      autocomplete="off">
+                            <!-- th:object binds the form data to the user object in the controller -->
+                            <!-- name field -->
+
+                            <div class="form-group mb-3">
+                           <label for="Name_field">Your Name</label>
+                       <input type="text"
+       th:field="*{name}"
+       class="form-control"
+       th:classappend="${#fields.hasErrors('name')} ? 'is-invalid' : ''"
+       placeholder="Enter your name"
+       required />
+
+                       
+                                                    <!-- we add is invalid to class so that if any error occurs it will show the red border -->
+                                                     <!-- we do not want by default invalid messsage so we use th:classappend to append the is-invalid class only if there are errors in the name field -->
+
+
+                            <!-- email field -->
+
+                                 <div class="form-group mb-3 mt-2">
+                           <label for="email_field">Your Email</label>
+                       <input type="email"
+       th:field="*{email}"
+       class="form-control"
+       th:classappend="${#fields.hasErrors('email')} ? 'is-invalid' : ''"
+       placeholder="Enter your email"
+       required />
+
+                         
+                            <!-- password field -->
+
+                                 <div class="form-group mb-3 mt-2">
+                           <label for="password_field">Your Password</label>
+                      <input type="password"
+       name="password"
+       class="form-control"
+       id="password_field"
+       placeholder="Enter your password"
+       autocomplete="new-password"
+       required />
+
+
+                           </div>
+
+                           <!-- user about field -->
+                            <div class="form-group mb-3 mt-2">
+                                 <label for="about_field">About</label>
+                           <textarea th:field="*{about}" name = "about" placeholder="Enter about yourself" rows="10" class="form-control" ></textarea>
+                           </div>
+
+                           <!-- contact image -->
+
+ <div class="custom-file text-center">
+<input type="file" name="profileImage" class="form-control">
+ </div>
+
+
+                           <div class="form-group form-check text-center mt-2">
+                            <input type="checkbox" name="agreement" class="form-check-input" id="termsCheck" Required>
+                            <label class="form-check-label" for="termsCheck">I agree to the terms and conditions</label>
+
+                           </div>
+
+                           <div class="container text-center">
+                            <button type="submit" class="btn bg-primary text-white">
+                                Register
+                            </button>
+                            <button type="reset" class="btn btn-warning text-white">
+                                Reset
+                 
+
+        </div>
+    </section>
+</body>
+</html>

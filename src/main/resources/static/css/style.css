@@ -1,0 +1,215 @@
+body {
+    background-color: rgb(244, 244, 239);
+}
+.bg-primary {
+    background-color: #b406e9 !important;
+}
+.banner{
+    height: 93lvh;
+    width: 100%;
+    background-image: linear-gradient(rgba(0,0,0,.8) , rgba(0,0,0,.8)),url('../img/banner.jpg');
+    background-position: center;
+    color: white;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.my-card{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 20px;
+    border-radius: 10px;
+    background-color: white;
+    color: black;
+}
+.register{
+    height: 120lvh;
+    width: 100%;
+    background-image: linear-gradient(rgba(0,0,0,.8) , rgba(0,0,0,.8)),url('../img/register.jpg');
+    background-position: center;
+    color: white;
+    background-size: cover;
+    
+}
+.form-control.is-invalid {
+  margin-bottom: 1rem;
+}
+/* ---------- PAGE BACKGROUND ---------- */
+body {
+    background-color: #f7f7f7;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ---------- LOGIN SECTION (BIG CARD) ---------- */
+#login {
+    background: #ffffff;
+    max-width: 520px;
+    margin: 80px auto;              /* center horizontally */
+    padding: 35px 40px 30px;
+    border-radius: 8px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.18);
+}
+
+/* ---------- LOGIN HEADING ---------- */
+#login h3 {
+    text-align: center;
+    color:#b406e9 ;                 /* same teal tone */
+    font-size: 26px;
+    margin-bottom: 30px;
+}
+
+/* ---------- FORM GROUP ---------- */
+#login .form-group {
+    margin-bottom: 18px;
+}
+
+/* ---------- LABELS ---------- */
+#login label {
+    font-weight: 600;
+    color: #b406e9;
+}
+
+/* ---------- INPUT FIELDS ---------- */
+#login .form-control {
+    height: 44px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 8px 12px;
+    font-size: 15px;
+}
+
+#login .form-control:focus {
+    border-color: #b406e9;
+    box-shadow: 0 0 0 0.15rem rgba(180, 6, 233, 0.25);
+}
+
+/* ---------- REMEMBER ME ---------- */
+#login .text-center {
+    margin: 15px 0;
+    color: #555;
+}
+
+/* ---------- SUBMIT BUTTON ---------- */
+#login .btn-info {
+    background-color: #6f42c1;      /* YOUR purple primary color */
+    border: none;
+    padding: 10px 25px;
+    font-size: 15px;
+    border-radius: 5px;
+}
+
+#login .btn-info:hover {
+    background-color: #59339d;
+}
+
+/* ---------- REGISTER LINK ---------- */
+#register-link {
+    margin-top: 20px;
+    text-align: right;
+}
+
+#register-link a {
+    color: #b406e9;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+#register-link a:hover {
+    text-decoration: underline;
+}
+
+/* ---------- ALERT MESSAGES ---------- */
+.alert {
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+.toggle-btn {
+    color: #59339d;
+  display: none;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* sidebar */
+@media screen and (max-width: 600px) {
+
+  .sidebar {
+    display: none;
+    width: 80%;
+    position: fixed;
+    z-index: 1000;
+  }
+
+  .content {
+    margin-left: 0 !important;
+  }
+
+  .sidebar.active {
+    display: block;
+  }
+}
+
+.sidebar {
+    width: 18%;
+    position: fixed;
+    height: 100%;
+    background-color: #ffffff;
+    padding-top: 45px;
+}
+.sidebar a {
+    display: block;
+     width: 100%;
+    color: gray;
+    padding: 10px 25px;
+    text-decoration: none;
+}
+.sidebar.divider {
+    width: 100%;
+    height: 5px;
+    background-color: #e0e0e0;
+    margin-top: 10px ;
+}
+.sidebar a:hover {
+    background-color: #b406e9;
+    color: #e0e0e0;
+    
+}
+.content {
+    margin-left: 18%;
+    padding: 20px;
+}
+.sidebar .crossbtn {
+position: absolute;
+top: 0;
+right:20px ;
+font-size: 35px;
+cursor: pointer;
+}
+.content  .toggle-btn{
+    display: block;
+    margin-top: 0;
+}
+.my_profile_photo {
+    width: 35px;
+    height: 35px;
+    object-fit: cover;
+    border-radius: 50%;
+    
+}
+
+.description{
+    margin-top: .5px;
+    font-weight: 700;
+}
+.search-result{
+    position: absolute;
+    background-color: #ffffff;
+    width: 100%;
+    padding: 10px;
+    border:1px solid gray ;
+    margin-top: 20px;
+}
+.search-container{
+    position: relative;
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{normal/base :: layout(~{::section})}">
+
+<section>
+
+    <div class="card mr-3 ml-3" th:if="${contact}">
+        <div class="card-body" >
+
+            <div class="container text-center">
+                <img
+                  class="my_profile_photo"
+                  style="height:200px; width:200px;"
+                  th:src="@{'/img/' + ${contact.image}}"
+                  alt="Profile Photo"/>
+
+                  <h3 class="mt-2"> <span th:text="${contact.name}"></span>     (  <span th:text="${contact.secondname}"></span> )  </h3>
+                   
+
+<table class="table mt-3">
+  <thead>
+    <tr>
+      <th scope="col">#ID</th>
+      <th scope="col">SCMUSER<span th:text="${contact.cId}"></span></th>
+    </tr>
+  </thead>
+  <tbody>
+
+
+    <tr>
+      <th scope="col">EMAIL</th>
+      <th scope="col"><span th:text="${contact.email}"></span></th>
+    </tr>
+
+
+    <tr>
+      <th scope="col">PHONE NUMBER</th>
+      <th scope="col"><span th:text="${contact.phone}"></span></th>
+    </tr>
+
+
+<tr>
+      <th scope="col">WORK</th>
+      <th scope="col"><span th:text="${contact.work}"></span></th>
+    </tr>
+
+  </tbody>
+</table>
+
+<div class="description">
+
+    <th:block th:utext="${contact.description}"></th:block>
+</div>
+
+<div class="container mt-3">
+     <button th:onclick="|deleteContact(${contact.cId})|" class="btn btn-danger btn-sm ">Delete</button>
+
+
+
+              <!-- ye wla form hume update form k url pr lejyega as iska mapping usse match ho rha hai but the jo update krega form db ke and r wo dusre kisi mapping pr hai pr wo hit ni ho skti kisi url se as wo post hai aur wo hume update button se hi krni hogi so thats why we use the same url for that purpose -->
+
+ <form method="post" th:action="@{'/user/update-contact/'+${contact.cId}}" class="mt-2">
+        <button type="submit" class="btn btn-primary btn-sm ">Update</button>
+        </form>
+</div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <h1 th:unless="${contact}" class="text-center p-3 bg-danger mt-2 text-white">Your do not have the permission to see this contact</h1>
+
+
+</section>
+
+</html>
